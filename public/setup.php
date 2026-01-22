@@ -166,13 +166,25 @@ define('SETUP_PASSWORD', 'sinton2026'); // Change this!
                         echo '<div class="step"><span class="step-status">⚠️ WARNING:</span> Composer not found in PATH</div>';
                         echo '<div class="step">Attempting to download composer...</div>';
                         
+                        // Set environment variables for Composer
+                        putenv('HOME=' . $basePath);
+                        putenv('COMPOSER_HOME=' . $basePath . '/.composer');
+                        
+                        // Create .composer directory
+                        if (!is_dir($basePath . '/.composer')) {
+                            mkdir($basePath . '/.composer', 0755, true);
+                        }
+                        
                         // Download composer
                         $composerSetup = file_get_contents('https://getcomposer.org/installer');
                         if ($composerSetup) {
                             file_put_contents($basePath . '/composer-setup.php', $composerSetup);
                             
                             chdir($basePath);
-                            exec('php composer-setup.php 2>&1', $output, $return);
+                            
+                            // Set environment and run installer
+                            $envVars = 'HOME=' . escapeshellarg($basePath) . ' COMPOSER_HOME=' . escapeshellarg($basePath . '/.composer');
+                            exec($envVars . ' php composer-setup.php 2>&1', $output, $return);
                             
                             if ($return === 0 && file_exists($basePath . '/composer.phar')) {
                                 echo '<div class="step"><span class="step-status">✓</span> Composer downloaded successfully</div>';
@@ -194,8 +206,18 @@ define('SETUP_PASSWORD', 'sinton2026'); // Change this!
                         // Change to project directory
                         chdir($basePath);
                         
-                        // Run composer install
-                        $command = "php " . escapeshellarg($composerPath) . " install --optimize-autoloader --no-dev --no-interaction 2>&1";
+                        // Set environment variables
+                        putenv('HOME=' . $basePath);
+                        putenv('COMPOSER_HOME=' . $basePath . '/.composer');
+                        
+                        // Create .composer directory if it doesn't exist
+                        if (!is_dir($basePath . '/.composer')) {
+                            mkdir($basePath . '/.composer', 0755, true);
+                        }
+                        
+                        // Run composer install with environment variables
+                        $envVars = 'HOME=' . escapeshellarg($basePath) . ' COMPOSER_HOME=' . escapeshellarg($basePath . '/.composer');
+                        $command = $envVars . ' php ' . escapeshellarg($composerPath) . ' install --optimize-autoloader --no-dev --no-interaction 2>&1';
                         
                         exec($command, $output, $returnCode);
                         
