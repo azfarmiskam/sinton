@@ -1,59 +1,167 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sinton Group - Corporate Website
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Sinton Group Logo](public/images/logos/sintonlogo.png)
 
-## About Laravel
+A professional corporate website for **Sinton Group**, a Singapore-based global commodity trading company specializing in fertilizers, oleochemicals, agriculture and food products.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🌐 Live Website
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Domain**: [sinton.asia](https://sinton.asia)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 📋 About
 
-## Learning Laravel
+Founded in 2021, Sinton Group is a global commodity trading company with offices across Asia:
+- 🇸🇬 Singapore (Headquarters)
+- 🇲🇾 Kuala Lumpur, Malaysia
+- 🇲🇾 Labuan, Malaysia
+- 🇮🇩 Indonesia
+- 🇮🇳 India
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 🎯 Business Activities
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Trading
+- **Fertilizers**: Urea, DAP, MOP, NPK, TSP, Rock Phosphate
+- **Oleochemicals**: CP16, CP18, Vitamin E, Glycerin
+- **Agriculture Products**: Rice, Wheat, Raw Sugar, Soybean Meal
+- **Food Products**: Milk, Australian Beef, Brazilian Beef, Buffalo Meat
 
-## Laravel Sponsors
+### Investments
+- **Oleochemicals Plant** (Indonesia) - 60,000 MT/year capacity
+- **NPK Fertilizer Plants** (5 facilities) - 2,000,000 MT/year total capacity
+- **Meat Processing Plant** - 100,000 MT/year capacity
+- **Milk Processing Plants** (10 facilities) - 1,000,000 litres/day capacity
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🛠️ Technology Stack
 
-### Premium Partners
+- **Framework**: Laravel 12.48.1
+- **PHP**: 8.2+
+- **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
+- **Fonts**: Montserrat (Headings), Open Sans (Body)
+- **Icons**: Font Awesome 6.4.0
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 🎨 Design Features
 
-## Contributing
+- ✅ Responsive design (mobile-friendly)
+- ✅ Modern corporate aesthetics
+- ✅ Hero slider with 5 rotating slides
+- ✅ Smooth animations and transitions
+- ✅ Brand colors: Teal (#1BA098) & Navy (#0D5C7D)
+- ✅ SEO optimized
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 📁 Project Structure
 
-## Code of Conduct
+```
+sinton/
+├── app/                    # Laravel application logic
+├── public/                 # Public assets
+│   ├── css/               # Stylesheets
+│   ├── js/                # JavaScript files
+│   └── images/            # Images (logos, products, backgrounds)
+├── resources/
+│   └── views/             # Blade templates
+│       ├── layouts/       # Layout templates
+│       ├── products/      # Product pages
+│       ├── home.blade.php
+│       ├── about.blade.php
+│       └── contact.blade.php
+├── routes/
+│   └── web.php            # Web routes
+├── DEPLOYMENT_GUIDE.md    # Deployment instructions
+└── DEPLOYMENT_CHECKLIST.md # Quick deployment checklist
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 🚀 Local Development
 
-## Security Vulnerabilities
+### Prerequisites
+- PHP 8.2 or higher
+- Composer
+- Laravel Herd (recommended) or Laravel Valet
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Installation
 
-## License
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/azfarmiskam/sinton.git
+   cd sinton
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+2. **Install dependencies**
+   ```bash
+   composer install
+   ```
+
+3. **Set up environment**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
+
+4. **Serve the application**
+   
+   **Using Laravel Herd:**
+   - The site will be available at `http://sinton.test`
+   
+   **Using Artisan:**
+   ```bash
+   php artisan serve
+   ```
+   - Visit `http://localhost:8000`
+
+## 📦 Deployment to GoDaddy Shared Hosting
+
+See the comprehensive deployment guide:
+- **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)** - Complete step-by-step instructions
+- **[DEPLOYMENT_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md)** - Quick reference checklist
+
+### Quick Deployment Steps
+
+1. Upload Laravel files to `/sinton_app/` folder
+2. Upload `public/` folder contents to `/public_html/`
+3. Edit `public_html/index.php` to update paths
+4. Configure `.env` file
+5. Set folder permissions (755 for storage and cache)
+
+## 📄 Pages
+
+- **Home** (`/`) - Hero slider, business overview, products preview
+- **About Us** (`/about`) - Company information, values, offices
+- **Trade Products** (`/products/trade`) - Detailed product categories
+- **Investments** (`/products/investments`) - Investment projects
+- **Contact Us** (`/contact`) - Contact information and office locations
+
+## 🎨 Brand Guidelines
+
+### Colors
+- **Primary Teal**: `#1BA098`
+- **Primary Navy**: `#0D5C7D`
+- **Secondary Teal**: `#16C5B5`
+- **Dark Navy**: `#073B52`
+- **Light Teal**: `#E8F7F6`
+
+### Typography
+- **Headings**: Montserrat (700 weight)
+- **Body**: Open Sans (400 weight)
+- **H1**: 35px (desktop), 28px (mobile)
+- **Subheading**: 24px
+- **Body**: 17px
+- **Secondary**: 13px
+
+## 📝 License
+
+This project is proprietary and confidential. All rights reserved by Sinton Group.
+
+## 👨‍💻 Developer
+
+Developed by **Azfar Miskam**
+- GitHub: [@azfarmiskam](https://github.com/azfarmiskam)
+
+## 📞 Contact
+
+For inquiries about Sinton Group:
+- **Email**: info@sinton.asia
+- **Website**: [www.sinton.asia](https://sinton.asia)
+
+---
+
+**Last Updated**: January 22, 2026
+**Version**: 1.0.0
