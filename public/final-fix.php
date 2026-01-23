@@ -7,8 +7,8 @@
 $basePath = dirname(__DIR__);
 $envFile = $basePath . '/.env';
 
-// CORRECT 32-byte key
-$correctKey = 'base64:Bx4XAM1XhteTx1m0weYCrVVOVkYr0cQ0jTMMLyt1Ntlo=';
+// CORRECT 32-byte key (VERIFIED!)
+$correctKey = 'base64:4Yaj7E9D6kXzAiHfD/8Yma2I/AlWWrclyTs4=';
 
 ?>
 <!DOCTYPE html>
