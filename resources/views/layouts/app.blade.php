@@ -39,7 +39,6 @@
                         Our Products <i class="fas fa-chevron-down" style="font-size: 10px; margin-left: 5px;"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ route('products') }}">All Products</a></li>
                         <li><a href="{{ route('products.trade') }}">Trade</a></li>
                         <li><a href="{{ route('products.investments') }}">Investments</a></li>
                     </ul>
