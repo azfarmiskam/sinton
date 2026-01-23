@@ -6,7 +6,9 @@ A professional corporate website for **Sinton Group**, a Singapore-based global 
 
 ## 🌐 Live Website
 
-**Domain**: [sinton.asia](https://sinton.asia)
+**🎉 LIVE**: [sinton.asia](https://sinton.asia)
+
+**Status**: ✅ Successfully deployed on GoDaddy shared hosting
 
 ## 📋 About
 
