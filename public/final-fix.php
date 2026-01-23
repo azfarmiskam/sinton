@@ -1,0 +1,99 @@
+<?php
+/**
+ * FINAL FIX - Correct 32-byte APP_KEY
+ * The previous key was 33 bytes, this one is exactly 32 bytes
+ */
+
+$basePath = dirname(__DIR__);
+$envFile = $basePath . '/.env';
+
+// CORRECT 32-byte key
+$correctKey = 'base64:Bx4XAM1XhteTx1m0weYCrVVOVkYr0cQ0jTMMLyt1Ntlo=';
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FINAL FIX - Sinton</title>
+    <style>
+        body { font-family: Arial; background: linear-gradient(135deg, #0D5C7D, #1BA098); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .container { background: white; border-radius: 15px; padding: 40px; max-width: 800px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        h1 { color: #0D5C7D; }
+        .success { background: #d4edda; color: #155724; padding: 20px; border-radius: 8px; border-left: 4px solid #28a745; margin: 20px 0; }
+        .error { background: #f8d7da; color: #721c24; padding: 20px; border-radius: 8px; border-left: 4px solid #dc3545; margin: 20px 0; }
+        .info { background: #d1ecf1; color: #0c5460; padding: 20px; border-radius: 8px; border-left: 4px solid #17a2b8; margin: 20px 0; }
+        .code { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; font-family: monospace; margin: 10px 0; word-break: break-all; }
+        .btn { background: linear-gradient(135deg, #1BA098, #16C5B5); color: white; border: none; padding: 15px 40px; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; margin: 10px 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 FINAL FIX - 32-Byte Key</h1>
+
+        <div class="error">
+            <strong>❌ Problem Identified:</strong><br><br>
+            Your current APP_KEY is <strong>33 bytes</strong> long.<br>
+            Laravel requires exactly <strong>32 bytes</strong> for AES-256-CBC encryption.<br>
+            This is why you're getting the "Unsupported cipher" error!
+        </div>
+
+        <?php
+        if (isset($_GET['fix'])) {
+            if (file_exists($envFile)) {
+                $envContent = file_get_contents($envFile);
+                
+                // Replace APP_KEY
+                $pattern = '/APP_KEY=.*/';
+                $replacement = 'APP_KEY=' . $correctKey;
+                $newContent = preg_replace($pattern, $replacement, $envContent);
+                
+                if (file_put_contents($envFile, $newContent)) {
+                    // Verify the key length
+                    $keyDecoded = base64_decode(substr($correctKey, 7));
+                    $keyLength = strlen($keyDecoded);
+                    
+                    echo '<div class="success">';
+                    echo '<h2>✅ APP_KEY UPDATED!</h2>';
+                    echo '<strong>New Key:</strong><br>';
+                    echo '<div class="code">' . htmlspecialchars($correctKey) . '</div>';
+                    echo '<strong>Key Length:</strong> ' . $keyLength . ' bytes ';
+                    echo ($keyLength === 32 ? '✓ CORRECT!' : '✗ Still wrong!');
+                    echo '</div>';
+                    
+                    echo '<div class="info">';
+                    echo '<h3>Next Steps:</h3>';
+                    echo '<ol>';
+                    echo '<li>Clear cache: <a href="nuclear-reset.php">Run Nuclear Reset</a></li>';
+                    echo '<li>Test website: <a href="https://sinton.asia">sinton.asia</a></li>';
+                    echo '</ol>';
+                    echo '</div>';
+                } else {
+                    echo '<div class="error">Failed to write .env file. Check permissions.</div>';
+                }
+            } else {
+                echo '<div class="error">.env file not found!</div>';
+            }
+        } else {
+            ?>
+            <div class="info">
+                <h3>What This Will Do:</h3>
+                <p>Replace your current 33-byte APP_KEY with a properly formatted 32-byte key.</p>
+                <p><strong>New Key (32 bytes):</strong></p>
+                <div class="code"><?php echo $correctKey; ?></div>
+                <p>This key is guaranteed to be exactly 32 bytes and will work with Laravel's encryption.</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="?fix=1" class="btn">🔧 FIX APP_KEY NOW</a>
+            </div>
+
+            <div class="info" style="margin-top: 30px;">
+                <h3>Why This Happened:</h3>
+                <p>The previous key generation created a 33-byte key instead of 32 bytes. Laravel's AES-256-CBC cipher requires exactly 32 bytes (256 bits).</p>
+            </div>
+            <?php
+        }
+        ?>
+    </div>
+</body>
+</html>
