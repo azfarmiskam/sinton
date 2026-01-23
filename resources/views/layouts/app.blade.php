@@ -35,10 +35,11 @@
                 <li><a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">Home</a></li>
                 <li><a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">About Us</a></li>
                 <li class="dropdown">
-                    <a href="#" class="{{ request()->routeIs('products.*') ? 'active' : '' }}">
+                    <a href="{{ route('products') }}" class="{{ request()->routeIs('products*') ? 'active' : '' }}">
                         Our Products <i class="fas fa-chevron-down" style="font-size: 10px; margin-left: 5px;"></i>
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a href="{{ route('products') }}">All Products</a></li>
                         <li><a href="{{ route('products.trade') }}">Trade</a></li>
                         <li><a href="{{ route('products.investments') }}">Investments</a></li>
                     </ul>

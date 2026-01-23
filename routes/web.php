@@ -12,6 +12,11 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
+// Products Overview Page
+Route::get('/products', function () {
+    return view('products.index');
+})->name('products');
+
 // Products - Trade Page
 Route::get('/products/trade', function () {
     return view('products.trade');
